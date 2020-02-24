@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <keep-alive exclude="detail">
+      <router-view />
+    </keep-alive>
+    <maintabbar></maintabbar>
   </div>
 </template>
-
+ 
+<script>
+import maintabbar from "./components/content/mainTabbar/maintabbar";
+export default {
+  name: "app",
+  components: {
+    maintabbar
+  },
+  data() {
+    return {
+      isshow: true
+    };
+  }
+  // watch: {
+  //   $route: {
+  //     handler: function(val, oldVal) {
+  //       if (val.fullPath.search("detail") != -1) {
+  //         this.isshow = false;
+  //       }
+  //     },
+  //     // 深度观察监听
+  //     deep: true
+  //   }
+  // }
+};
+</script>
 <style>
+@import "./assets/css/base.css";
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
