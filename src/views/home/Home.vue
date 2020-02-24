@@ -53,7 +53,7 @@ import {
   getHomeGoods
 } from "../../network/home.js";
  
-import { debounce } from "../../common/utils.js";
+//import { debounce } from "../../common/utils.js";
 import { itemimgload } from "../../common/mixin.js";
 import { backTopMixin } from "../../components/content/backTop/backTopMixin.js";
  
